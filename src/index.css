@@ -1,3 +1,102 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Netflix-style animations */
+@keyframes netflixBackground {
+  0% {
+    background: #000;
+  }
+  100% {
+    background: #141414;
+  }
+}
+
+@keyframes netflixLogo {
+  0% {
+    opacity: 0;
+    transform: scale(10);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes netflixGlow {
+  0% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 30px #0284c7;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes netflixBar {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeToBlack {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.netflix-splash {
+  animation: netflixBackground 4s ease-out forwards;
+}
+
+.netflix-logo-wrapper {
+  position: relative;
+  animation: netflixLogo 4s cubic-bezier(0.36, 0, 0.66, -0.56) forwards;
+}
+
+.netflix-logo-letter {
+  position: relative;
+  animation: netflixGlow 4s ease-in-out infinite;
+}
+
+.netflix-logo-bar {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  height: 2px;
+  background: #0284c7;
+  animation: netflixBar 1.5s ease-out forwards;
+  animation-delay: 2.5s;
+}
+
+.netflix-fade {
+  animation: fadeToBlack 0.5s ease-out forwards;
+  animation-delay: 4s;
+}
